@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" onclick="escape()">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="game">
+        <div id="car">
+            <img id="p107" src="car.png" style="height: 70px;">
+            <img id="boum" src="boum.png" style="height: 200px;">
+        </div>
+        <div id="obstacle">
+            <img src="car.png" style="height: 70px;">
+        </div>
+        <div id="road">
+            - - - - - - - - - - - - - - - - - - - - - - - -
+        </div>
+    </div>
+
+    <p id="score">Score:<span id="counter"></span></p>
+
+    <!-- <p id="warning">LEVEL 1</p><br>
+    <p id="denemem">LEVEL 1</p> -->
+    <p id="score">Level:<span id="denemem"></span></p>
+    <button id="nosbutton" type="button" onclick="nostime()">NOS 🔥 </button>
+
+
+
+    <script>
+        let car = document.getElementById('car')
+        let obstacle = document.getElementById('obstacle')
+        let boum = document.getElementById('boum')
+        let counter = 0;
+        let time = 0;
+
+
+
+
+
+        function escape() {
+            if (car.classList != "animation") {
+                car.classList.add("animation");
+            }
+
+            setTimeout(function () {
+                car.classList.remove("animation");
+
+
+            }, 2000);
+        }
+
+        function score() {
+            setInterval(function score() {
+                counter = counter + 1;
+                document.getElementById('counter').innerHTML = counter;
+                let level = Math.floor(counter / 100);
+
+                document.getElementById('denemem').innerHTML = level;
+
+            }, 100);
+
+        }
+
+        let checkDead = setInterval(function () {
+            let carTop = parseInt(window.getComputedStyle(car).getPropertyValue("top"));
+            let carLeft = parseInt(window.getComputedStyle(car).getPropertyValue("left"));
+            let carRight = carLeft + 141;
+            let carBottom = carTop - 70;
+
+            let obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("left"));
+            let obstacleTop = parseInt(window.getComputedStyle(obstacle).getPropertyValue("top"));
+            let obstacleRight = obstacleLeft + 141;
+            let obstacleBottom = obstacleTop - 70;
+
+
+
+            if (obstacleLeft - carRight < 15 && obstacleTop - carBottom < 15) {
+                console.log('hahahahahahhahaha')
+                // car.classList.remove("bumbum")
+                // car.classList.add("normal")
+
+                boum.style.display = "block";
+                p107.style.display = "none";
+                alert('Vous n avez pas respecté aux regles')  
+            }
+
+            else {
+                // car.classList.remove("normal")
+                // car.classList.add("bumbum")
+                boum.style.display = "none";
+                p107.style.display = "block";
+            }
+
+
+        }, 1);
+
+        // function nos() {
+        //     document.getElementById("road").style.animationDuration = "0.1s"
+        //     // road.style.animationduration = "0.1s";
+        //     document.getElementById("obstacle").style.animationDuration = "2s"
+
+        //     setInterval(function (){
+
+        //     })
+        // }
+
+
+
+
+            function nostime(){
+
+            
+        setInterval (function nostime() {
+            time = time + 1;
+            if (time <= 10) {
+                document.getElementById("road").style.animationDuration = "0.1s"
+                // road.style.animationduration = "0.1s";
+                document.getElementById("obstacle").style.animationDuration = "2s"
+                
+                console.log(time);
+            }
+            else{
+                document.getElementById("road").style.animationDuration = "0.3s"
+                // road.style.animationduration = "0.1s";
+                document.getElementById("obstacle").style.animationDuration = "3s"
+                
+                
+                console.log(time);
+                
+            }
+
+            
+
+            
+
+        },1000);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        setInterval(score(), 10);
+    </script>
+</body>
+
+</html>

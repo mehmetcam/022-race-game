@@ -1,0 +1,147 @@
+*{
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}
+
+
+
+#score{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 72px;
+
+}
+#warning{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 72px;
+
+}
+
+#denemem{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 72px;
+}
+
+#game{
+    width: 1000px;
+    height: 300px;
+    border: 1px black solid;
+    background-color: gray;
+    
+
+}
+
+#road{
+    font-size: 70px;
+    position: relative;
+    top: 35px;
+    animation: road infinite linear;
+    animation-duration: 0.3s;
+    user-select: none;
+}
+
+@keyframes road{
+    from{
+        left: 20px;
+        
+    }
+
+    to{
+        left: 1px;
+        
+    }
+}
+
+
+#boum{
+    display: none;
+    z-index: 1;
+/* 
+    top: 130px;  
+    left: 200px; */
+}
+
+#p107{
+    
+}
+
+#car{
+    width: 100px;
+    height: 40px;
+    /* background-image: url(car.png); */
+    position: relative;
+    top: 130px;  
+    left: 200px;  
+    z-index: 1;
+}
+
+/* .normal{
+    background-image: url(car.png);
+}
+
+.bumbum{
+    background-image: url(boum.png);
+} */
+
+
+.animation{
+    animation: car infinite linear;
+    /* animation-duration: 2s; */
+}
+
+@keyframes car{
+    0%{
+        top: 130px;
+    }
+
+    40%{
+        top: 10px;
+
+    }
+
+    50%{
+        top: 10px;
+
+    }
+
+    100%{
+        top: 130px;
+    }
+}
+
+
+#obstacle{
+    width: 30px;
+    height: 30px;
+    
+    position: relative;
+    top: 80px;
+    left: 950px;
+    animation: obstacle 3s infinite linear;
+    z-index: 1;
+    
+    
+}
+
+@keyframes obstacle{
+    0%{
+        left: 950;
+    }
+
+    100%{
+        left: 0;
+    }
+}
+
+#nosbutton{
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    height: 60px;
+    width: 140px;
+    font-size: 30px;
+}
